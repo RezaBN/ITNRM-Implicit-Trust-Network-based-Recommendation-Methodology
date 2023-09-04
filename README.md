@@ -157,10 +157,43 @@ To use ITNRM in your own projects or research, follow these steps:
 5.	Customize the code to adapt it to your dataset and requirements.
 6.	Run the script.
 
-## Conclusion
+## Important Notes
 
-ITNRM represents a significant advancement in the field of recommendation systems, offering a powerful methodology for enhancing recommendation accuracy by considering trust relationships between users. We encourage researchers and practitioners to explore ITNRM's capabilities and contribute to its further development.
+This code is designed for use with the MovieLens 100K dataset, which consists of 944 users providing 100,000 ratings to 1,968 items. The code includes functions that operate on full matrices of user-item interactions (containing user ratings for items) and user-user relationships (including similarity, confidence, identical opinions, and trust among users). It is important to note that when running this code with large datasets, you may encounter memory errors and experience significant time-consuming issues.
+
+We have made efforts to optimize runtime by leveraging NumPy's features and utilizing Numba's functionality in some cases. Given our system's specifications (16.0 GB RAM and an Intel Core i7 CPU), the current version requires approximately 4 minutes to complete all processes. But it's important to keep in mind that memory usage can still be a concern when working with large datasets
+
+To address potential memory and performance issues in larger datasets, please consider the following suggestions:
+
+1. **Reduce Memory Usage**:
+   - Examine whether you can optimize your code to use smaller data structures.
+   - Avoid creating large intermediate matrices if possible.
+   - Use memory-efficient data types.
+
+2. **Memory Management or Garbage Collection**:
+   - Delete matrices that are no longer needed in your code to free up memory.
+   - Reducing memory usage can help prevent memory errors and improve running time.
+
+3. **Batch Processing**:
+   - Break down calculations into smaller batches to reduce memory usage.
+
+4. **Sparse Matrices**:
+   - If your data is sparse (mostly containing zero values), consider using sparse matrix representations, such as `scipy.sparse`, to significantly reduce memory consumption.
+
+5. **Parallelization**:
+   - Utilize parallel processing to distribute computations across multiple CPU cores, which can speed up calculations and reduce memory usage.
+
+6. **Optimize Algorithms**:
+   - Review the scripts for opportunities to reduce complexity or optimize calculations to minimize memory usage.
+
+7. **Consider a Server/Cloud Solution**:
+   - If the computations are too memory-intensive for your local machine, explore options such as cloud-based solutions or servers with higher memory capacities.
+
+We welcome and appreciate any solutions or edited versions you may develop to improve memory efficiency and overall performance when working with large datasets. Collaboration and contributions are encouraged to enhance the code and the proposed methods.
+
+Thank you for using this code, and we look forward to your feedback and contributions.
+
+---
 
 For any questions or inquiries, please contact the authors of the original paper.
 
----
